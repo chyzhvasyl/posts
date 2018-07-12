@@ -122,53 +122,46 @@
         </div>
       </form>
 
-
+<!--*ngFor="let post of posts"  post.name-->
 
     </div>
-    <div class="col-md-9" style="margin-top: 10%;"> <div class="card">
-      <div class="card-body">
+    <div class="col-md-9" style="margin-top: 10%;">
+
+      <div class="card" *ngFor="let post of posts" style="margin-top: 2%">
+      <div class="card-body"    >
         <div class="row">
-        <h5 style="color: deepskyblue  ">SEO Review and Recomendations</h5></div>
+        <h5 style="color: deepskyblue  "> {{post.name}} </h5></div>
         <div class="row"   >
           <ul class="list-inline">
 
 
 
             <li class="list-inline-item" style="color: darkgrey">Fixed:</li>
-            <li class="list-inline-item"> {{'Reqular'}}</li>|
+            <li class="list-inline-item"> {{post.options.fixed}}</li>|
 
             <li class="list-inline-item" style="color: darkgrey"> Budget:</li>
-            <li class="list-inline-item"> {{'$300'}}</li>|
+            <li class="list-inline-item"> {{post.options.budget}}</li>|
             <li class="list-inline-item" style="color: darkgrey"> Delivery:</li>
-            <li class="list-inline-item"> {{'Urgent'}}</li>|
-            <li class="list-inline-item" style="color: darkgrey"> Fosted:</li>
-            <li class="list-inline-item"> {{'12 minutes ago'}}</li>|
+            <li class="list-inline-item"> {{post.options.delivery}}</li>|
+            <li class="list-inline-item" style="color: darkgrey"> Posted:</li>
+            <li class="list-inline-item"> {{ post.options.posted }}</li>|
             <li class="list-inline-item" style="color: darkgrey"> Ends:</li>
-            <li class="list-inline-item"> {{'14d,23h'}}</li>|
-            <li class="list-inline-item"  > <a href="#" class="badge badge-info">0 proposals</a></li>
-
+            <li class="list-inline-item"> {{post.options.ends}}</li>|
+            <li class="list-inline-item"  > <a href="#" class="badge badge-info">{{post.options.proposals}} proposals</a></li>
           </ul>
         </div>
         <div class="row">
-          <div class=""> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation
-            ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit
-            in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat
-            non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</div>
+          <div class="">{{post.description}} </div>
         </div>
         <br>
         <div class="row"   >
           <ul class="list-inline">
-
-
-
             <li class="list-inline-item" style="color: darkgrey">Category:</li>
-            <li class="list-inline-item"> {{'Search Engine'}}</li>
+            <li class="list-inline-item"> {{post.category}}</li>
 
             <li class="list-inline-item" style="color: darkgrey"> Skils:</li>
-            <li class="list-inline-item" style="background-color: lightgrey; border-radius: 5px; padding: 5px"> {{'php'}}</li>
-            <li class="list-inline-item" style="background-color: lightgrey; border-radius: 5px; padding: 5px"> {{'.net'}}</li>
-            <li class="list-inline-item" style="background-color: lightgrey; border-radius: 5px; padding: 5px"> {{'google maps'}}</li>
+            <li class="list-inline-item" style="background-color: lightgrey; border-radius: 5px; padding: 5px"> {{post.skills[0].name}}</li>
+            <li class="list-inline-item" style="background-color: lightgrey; border-radius: 5px; padding: 5px"> {{post.skills[1].name}}</li>
 
             <li class="list-inline-item"  > <a href="#" class="badge badge-info">18 more</a></li>
 
@@ -176,26 +169,19 @@
         </div>
         <div class="row"   >
           <ul class="list-inline">
-
-
-
             <li class="list-inline-item" style="color: darkgrey">Client:</li>
-            <li class="list-inline-item"> {{'Unated States'}}</li>
-
-            <li class="list-inline-item"> {{'4.8'}}</li>
-
+            <li class="list-inline-item"> {{post.client.country }}</li>
+            <li class="list-inline-item"> {{post.client.rating }}</li>
           </ul>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
           <span class="fa fa-star checked"></span>
-          <span class="fa fa-star"></span>
-          <span class="fa fa-star"></span>
+          <span class="fa fa-star checked"></span>
+          <span class="fa fa-star checked"></span>
         </div>
       </div>
-
+      </div>
     </div>
-    </div>
-
   </div>
 
 
@@ -205,4 +191,7 @@
 
 
 </div>
+
+
+
 

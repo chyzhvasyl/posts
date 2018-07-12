@@ -1,5 +1,4 @@
-{
-  "posts": [
+ [
     {
       "name": "SEO Review and Reccomendations",
       "options": {
@@ -12,7 +11,7 @@
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur... more Excepteur sint occaecat cupidatat no",
       "category": "Search Engine",
-      "slils": [
+      "skills": [
         {
           "id":1,
           "name": "net-framework"
@@ -39,7 +38,7 @@
       },
       "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor         incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur... more Excepteur sint occaecat cupidatat no",
       "category": "Search Engine",
-      "slils": [
+      "skills": [
         {
           "id":1,
           "name": "net-framework"
@@ -55,4 +54,4 @@
       }
     }
   ]
-}
+

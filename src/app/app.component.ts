@@ -1,81 +1,32 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import {Http, Response} from '@angular/http';
 import {Observable} from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
+import {ApiService} from './api.service';
+import {Myinterface} from './myinterface';
+import {Pipe} from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ApiService]
 })
-export class AppComponent {
+@Pipe({name: 'keys'})
+export class AppComponent implements OnInit {
   title = 'app';
- constructor(private http: Http) {
+public posts = [];
+
+
+ constructor(private apiservice: ApiService) {
 
 
  }
 
+ngOnInit() {
+ this.apiservice.getPosts().subscribe(data => this.posts = data);
 
-  arr = [
-    {
-      'name': 'SEO Review and Reccomendations',
-      'options': {
-        'fixed': 'Regular',
-        'budget': 300,
-        'delivery': 'Urgent',
-        'posted': '12 minutes ago',
-        'ends': '14d, 23h',
-        'proposals': 0
-      },
-      'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor ' +
-      '        incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ' +
-      'ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate ' +
-      'velit esse cillum dolore eu fugiat nulla pariatur... more Excepteur sint occaecat cupidatat no',
-      'category': 'Search Engine',
-      'slils': [
-        {
-          'id': 1,
-          'name': 'net-framework'
-        },
-        {
-          'id': 2,
-          'name': 'рhp'
-        }
-      ],
-      'client': {
-        'country': 'United states',
-        'rating': 4.8
-      }
-    },
-    {
-      'name': 'SEO Review and Reccomendations',
-      'options': {
-        'fixed': 'Regular',
-        'budget': 300,
-        'delivery': 'Urgent',
-        'posted': '12 minutes ago',
-        'ends': '14d, 23h',
-        'proposals': 0
-      },
-      'description': 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor        ' +
-      ' incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ' +
-      'ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit ' +
-      'in voluptate velit esse cillum dolore eu fugiat nulla pariatur... more Excepteur sint occaecat cupidatat no',
-      'category': 'Search Engine',
-      'slils': [
-        {
-          'id': 1,
-          'name': 'net-framework'
-        },
-        {
-          'id': 2,
-          'name': 'рhp'
-        }
-      ],
-      'client': {
-        'country': 'United states',
-        'rating': 4.8
-      }
-    }
-  ];
+}
+
+
 }
