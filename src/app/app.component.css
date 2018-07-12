@@ -1,0 +1,19 @@
+
+
+
+.checked {
+  color: orange;
+}
+.star-rating {
+  line-height:32px;
+  font-size:1.25em;
+}
+
+.star-rating .fa-star{color: yellow;}
+
+@media (max-width: 768px) {
+  .col-sm-2{
+    display: none;
+  }
+}
+
