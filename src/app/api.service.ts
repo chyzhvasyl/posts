@@ -8,14 +8,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/observable/throw';
 @Injectable()
 export class ApiService {
-  arr = 10;
-  arr2 = 15;
-  private _postsurl = 'https://my-json-server.typicode.com/chyzhvasyl/posts';
+
+  private _postsurl = 'https://my-json-server.typicode.com/chyzhvasyl/posts/posts';
   private _localurl = '/assets/data/package.json';
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
   getPosts(): Observable<Myinterface[]> {
 
-    return this.http.get<Myinterface[]>(this._localurl);
+    return this.httpClient.get<Myinterface[]>(this._localurl);
   }
 
 }
