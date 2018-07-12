@@ -22,9 +22,16 @@ export class SecondtaskComponent   {
   getProfile() {
 
     this.httpClient.get(`https://www.pinterest.com/${this.username}/feed.rss/`, { responseType: 'text' } )
-      .subscribe(response => {
-        console.log(response);
+      .subscribe((response: any ) => {
+         if (response) {
+console.log(response.length);
+           this.data = response ;
+           this.found = true;
+         } else {
+             alert('нет данных');
+           }
   });
+
 /*  let text = "";
 this.http.get('https://jsonplaceholder.typicode.com/posts')
 .map((res:Response) => res.xml2json())
