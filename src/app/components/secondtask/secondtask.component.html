@@ -1,13 +1,23 @@
 
 <div class="container">
-
-<h2>GET</h2>
-Name :<input type="text" (keyup)="onNameKeyUp($event)">
-<button (click)="getProfile()">get</button>
-<br>
-<div *ngIf="found">
-  <span>{{username}} xml below: </span>
   <br>
+  <h4>GET</h4>
+  <br>
+  <form>
+    <div class="form-row align-items-center">
+      <div class="col-auto">
+        <label class="sr-only"  >get name</label>
+        <input type="text"   class="form-control mb-2" id="inlineFormInput" placeholder="julia" (keyup)="onNameKeyUp($event)">
+      </div>
+      <div class="col-auto">
+        <button (click)="getProfile()"   class="btn btn-primary mb-2">get</button>
+      </div>
+    </div>
+  </form>
+<div *ngIf="found">
+<br>
+  <span>{{username}} <b>xml below: </b></span>
+  <br><br><br>
   <div>
     {{data}}
   </div>

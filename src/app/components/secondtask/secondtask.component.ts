@@ -1,6 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import * as xml2js from 'xml2js';
+import * as x2js from 'x2js';
+import {Observe} from './observe';
 import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs/observable';
+import {HttpHeaders, HttpParams, HttpErrorResponse} from '@angular/common/http';
+
 @Component({
   selector: 'app-secondtask',
   templateUrl: './secondtask.component.html',
@@ -8,30 +13,42 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class SecondtaskComponent   {
-
+   /*  x2js = new X2JS();
+    document = x2js.xml2js(xml);
+  xml = x2js.js2xml(document);*/
   username = '';
-  data: any;
+  data: Observable<any>;
   found: boolean;
-
+  parser: any;
   constructor(private httpClient: HttpClient) {  }
 
   onNameKeyUp(event: any) {
     this.username = event.target.value;
     this.found = false;
   }
-  getProfile() {
-
+  getProfile( ) {
     this.httpClient.get(`https://www.pinterest.com/${this.username}/feed.rss/`, { responseType: 'text' } )
-      .subscribe((response: any ) => {
-         if (response) {
-console.log(response.length);
-           this.data = response ;
+      .subscribe((data: any   ) =>
+        {
+         if (data.length)
+          {
+           this.data  = data ;
            this.found = true;
-         } else {
-             alert('нет данных');
-           }
-  });
+          }
+          }, (err: HttpErrorResponse) =>
+            {
+                  if (err.error instanceof Error)
+                  {
+                      console.log('error');
+                  } else
+                    {
+                        alert('Нет данных');
+                    }
+            }
 
+  );
+}
+}
 /*  let text = "";
 this.http.get('https://jsonplaceholder.typicode.com/posts')
 .map((res:Response) => res.xml2json())
@@ -39,7 +56,4 @@ this.http.get('https://jsonplaceholder.typicode.com/posts')
     data => {
         text = data;
         console.log(text);
-     });*/
-
-
-}}
+     */
